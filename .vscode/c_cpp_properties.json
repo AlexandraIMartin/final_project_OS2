@@ -3,7 +3,15 @@
         {
             "name": "Linux",
             "includePath": [
+<<<<<<< HEAD
                 "${workspaceFolder}/**"
+=======
+                "${workspaceFolder}/**",
+                "/home/admin1/final_project/include",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src"
+>>>>>>> a267a32cfe9807b20d8547b422b796777ae00873
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
