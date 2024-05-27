@@ -2,6 +2,7 @@
 #define SECURE_CRYPT_H
 
 #include <string>
+#include <stdexcept>
 
 std::string encrypt(const std::string &message, int key);
 std::string decrypt(const std::string &encrypted_message, int key);
