@@ -4,11 +4,19 @@
 #include "secure_crypt.cpp"
 
 void encrypt_message(const std::string &message, int key, std::string &encrypted_message) {
-    encrypted_message = encrypt(message, key);
+    try {
+        encrypted_message = encrypt(message, key);
+    } catch (const std::invalid_argument &e) {
+        std::cerr << "Encryption error: " << e.what() << std::endl;
+    }
 }
 
 void decrypt_message(const std::string &encrypted_message, int key, std::string &decrypted_message) {
-    decrypted_message = decrypt(encrypted_message, key);
+    try {
+        decrypted_message = decrypt(encrypted_message, key);
+    } catch (const std::invalid_argument &e) {
+        std::cerr << "Decryption error: " << e.what() << std::endl;
+    }
 }
 
 int main() {
@@ -25,7 +33,7 @@ int main() {
 
     std::thread decrypt_thread(decrypt_message, std::cref(encrypted_message), key, std::ref(decrypted_message));
     decrypt_thread.join();
-    
+
     std::cout << "Original message: " << message << std::endl;
     std::cout << "Encryption key: " << key << std::endl;
     std::cout << "Encrypted message: " << encrypted_message << std::endl;
