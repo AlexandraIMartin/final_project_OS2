@@ -6,10 +6,12 @@
             "type": "shell",
             "command": "g++",
             "args": [
+                "-I", "${workspaceFolder}/include",
                 "-g",
-                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/src/secure_crypt",
                 "-o",
-                "${workspaceFolder}/main"
+                "${workspaceFolder}/build/main"
             ],
             "group": {
                 "kind": "build",
